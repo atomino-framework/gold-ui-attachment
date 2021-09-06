@@ -3,12 +3,12 @@
     "name": "Gergely Laborci"
   },
   "dependencies": {
+    "cbytes": "^1.0.2",
+    "font-awesome-filetypes": "^2.1.0",
     "gold": "github:atomino-framework/gold-ui",
     "gold-entity": "github:atomino-framework/gold-ui-entity",
     "svelma": "^0.4.5",
-    "svelte": "^3.42.4",
-    "cbytes": "^1.0.2",
-    "font-awesome-filetypes": "^2.1.0"
+    "svelte": "^3.42.4"
   },
   "bundleDependencies": [],
   "deprecated": false,
