@@ -1,9 +1,9 @@
 <script lang="ts">
 	import cbytes from "cbytes";
-	import {Modal} from "gold/modal-manager";
+	import {Modal} from "gold/lib/modal-manager";
 	import ModalComponent from "gold/components/modal.svelte"
 	import ImageModal from "./image-modal.svelte"
-	import copy from "gold/copy";
+	import copy from "gold/lib/copy";
 	import {onMount} from "svelte";
 
 	export let modal: Modal;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import cbytes from "cbytes";
 	import {getClassNameForExtension} from "font-awesome-filetypes";
-	import {Modal} from "gold/modal-manager";
+	import {Modal} from "gold/lib/modal-manager";
 	import Details from "./details-modal.svelte"
 
 	export let file;

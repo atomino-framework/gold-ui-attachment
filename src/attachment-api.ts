@@ -1,4 +1,4 @@
-import handleFetch from "gold/handle-fetch";
+import handleFetch from "gold/lib/handle-fetch";
 import type {IAttachmentApi} from "./interfaces";
 
 export default class AttachmentApi implements IAttachmentApi {

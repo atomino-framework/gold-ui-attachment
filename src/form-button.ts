@@ -1,8 +1,8 @@
-import {Modal} from "gold/modal-manager";
+import {Modal} from "gold/lib/modal-manager";
 import {get} from "svelte/store";
 import type {IAttachmentApi} from "./interfaces";
-import AttachmentModal from "./components/attachment-modal.svelte";
-import type Form from "gold-entity/form/form";
+import AttachmentModal from "../components/attachment-modal.svelte";
+import type Form from "gold-entity/lib/form/form";
 import options from "./options";
 
 export default function attachmentButton(api:IAttachmentApi, visibleCollections:any){

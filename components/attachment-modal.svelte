@@ -1,8 +1,7 @@
 <script lang="ts">
-	import type {IAttachmentApi} from "../interfaces";
-	import type Form from "gold-entity/form/form";
+	import type {IAttachmentApi} from "../lib/interfaces";
 	import Modal from "gold/components/modal.svelte"
-	import {get, writable} from "svelte/store";
+	import { writable} from "svelte/store";
 	import Collection from "./collection.svelte"
 
 	export let modal;
