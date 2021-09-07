@@ -2,6 +2,7 @@
 	import cbytes from "cbytes";
 	import {getClassNameForExtension} from "font-awesome-filetypes";
 	import {Modal} from "gold/lib/modal-manager";
+	import options from "../lib/options";
 	import Details from "./details-modal.svelte"
 
 	export let file;
@@ -11,7 +12,9 @@
 
 	let icon;
 
-	$: icon = "far " + getClassNameForExtension(file.name.split('.').pop())
+
+
+	$: icon = options.filetype.family + " " + getClassNameForExtension(file.name.split('.').pop())
 
 	function showDetailsModal(){
 		let modal = new Modal(Details, {file, props, saveFileDetails:(data)=>saveFileDetails(file.name, data), removeFile:()=>removeFile(file.name)});
@@ -27,7 +30,7 @@
 			</figure>
 		{:else }
 			<div class="py-5 has-text-centered">
-				<i class="fas {icon} is-size-1"></i>
+				<i class="{icon} is-size-1"></i>
 			</div>
 		{/if}
 	</div>

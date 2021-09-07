@@ -5,6 +5,7 @@
 	import ImageModal from "./image-modal.svelte"
 	import copy from "gold/lib/copy";
 	import {onMount} from "svelte";
+	import options from "../lib/options";
 
 	export let modal: Modal;
 	export let file;
@@ -86,14 +87,14 @@
 				{/if}
 				<tr>
 					<td class="px-2 py-1 has-text-weight-bold" colspan="3">Properties
-						<i class="is is-clickable fas fa-plus py-1 has-text-primary is-pulled-right" on:click={()=>addProperty()}></i>
+						<i class="is is-clickable {options.details.add.icon} py-1 has-text-primary is-pulled-right" on:click={()=>addProperty()}></i>
 					</td>
 				</tr>
 				{#each properties as [key, value], index}
 					<tr class="property">
 						<td class="p-0"><input class="has-text-info input is-size-7 is-radiusless is-borderless px-2 py-1" bind:value={key} placeholder="key"></td>
 						<td class="p-0"><input class="has-text-info input is-size-7 is-radiusless is-borderless px-2 py-1" bind:value={value} placeholder="value"></td>
-						<td class="is-narrow px-2 py-1 has-text-right"><i class="is is-clickable fas fa-times py-1 has-text-danger" on:click={()=>removeProperty(index)}></i></td>
+						<td class="is-narrow px-2 py-1 has-text-right"><i class="is is-clickable {options.details.remove.icon} py-1 has-text-danger" on:click={()=>removeProperty(index)}></i></td>
 					</tr>
 				{/each}
 			</table>
@@ -102,10 +103,10 @@
 
 		<footer class="modal-card-foot is-justify-content-center p-2">
 			{#if file.isImage}
-				<button class="button is-info is-size-7" on:click={()=>showImageModal()}><i class="fas fa-image"></i>&nbsp;Image focus</button>
+				<button class="button is-info is-size-7" on:click={()=>showImageModal()}>{options.details.image.icon.Tag}&nbsp;Image focus</button>
 			{/if}
-			<button class="button is-primary is-size-7" on:click={()=>saveFileDetails({filename, title, focus: img.focus, safezone: img.safezone, properties: remapProperties()}).then(()=>modal.close())}><i class="fas fa-save"></i>&nbsp;Save</button>
-			<button class="button is-danger is-size-7" on:click={()=>removeFile().then(()=>modal.close())}><i class="fas fa-trash"></i>&nbsp;Delete</button>
+			<button class="button is-primary is-size-7" on:click={()=>saveFileDetails({filename, title, focus: img.focus, safezone: img.safezone, properties: remapProperties()}).then(()=>modal.close())}>{options.details.save.icon.Tag}&nbsp;Save</button>
+			<button class="button is-danger is-size-7" on:click={()=>removeFile().then(()=>modal.close())}>{options.details.delete.icon.Tag}&nbsp;Delete</button>
 		</footer>
 	</div>
 </ModalComponent>

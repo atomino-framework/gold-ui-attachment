@@ -2,12 +2,13 @@
 <script lang="ts">
 	import cbytes from "cbytes";
 	import File from "./file.svelte";
+	import options from "../lib/options";
 
 	export let collection;
 	export let files;
 	export let name: string = '';
 	export let label: string = '';
-	export let props:Array<string>;
+	export let props: Array<string>;
 
 	const COLLID = 'x--collection--';
 
@@ -21,13 +22,13 @@
 
 	$: full = collection.maxCount && collection.maxCount === collection.files.length;
 
-	function dragover(index:null|string|true, event) {
-		if(!event.dataTransfer.types.includes(COLLID + name) && full) return;
+	function dragover(index: null | string | true, event) {
+		if (!event.dataTransfer.types.includes(COLLID + name) && full) return;
 		over = index;
 	}
 
 	function dragstart(filename: string, from: number, event) {
-		event.dataTransfer.setData( COLLID + name, 1);
+		event.dataTransfer.setData(COLLID + name, 1);
 		event.dataTransfer.setData('filename', filename);
 		event.dataTransfer.setData('collection', name);
 		event.dataTransfer.setData('from', from);
@@ -46,7 +47,7 @@
 			copy: event.shiftKey
 		}
 
-		if(data.source !== data.target && full) return;
+		if (data.source !== data.target && full) return;
 
 
 		if (data.source === data.target) {
@@ -62,7 +63,7 @@
 	<header class="card-header">
 		<p class="card-header-title has-text-weight-normal">
 			<b>{label}</b><span class="pl-1 is-size-7">
-			{collection.maxSize ? " ( max file size: " + cbytes(collection.maxSize, {separator: '', decimals: 0}) +')' : ''}
+			{collection.maxSize ? " ( max file size: " + cbytes(collection.maxSize, {separator: '', decimals: 0}) + ')' : ''}
 			</span>
 		</p>
 		<input bind:this={input} multiple type="file" style="display: none" on:change={()=>upload(name, input.files)}>
@@ -84,7 +85,11 @@
 				<div class="card is-inline-block m-1 is-unselectable has-background-info" class:has-background-danger={full} draggable="false">
 					<div class="card-image">
 						<div class="py-5 has-text-centered">
-							<i class="fas is-size-1 has-text-white" class:fa-folder-upload={!full} class:fa-folder-times={full}></i>
+							{#if (full)}
+								<i class=" is-size-1 has-text-white {options.collection.full.icon}"></i>
+							{:else }
+								<i class=" is-size-1 has-text-white {options.collection.upload.icon}"></i>
+							{/if}
 						</div>
 					</div>
 					<header class="card-header has-background-info is-flex-direction-column" class:has-background-danger={full}>
