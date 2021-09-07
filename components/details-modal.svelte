@@ -103,10 +103,10 @@
 
 		<footer class="modal-card-foot is-justify-content-center p-2">
 			{#if file.isImage}
-				<button class="button is-info is-size-7" on:click={()=>showImageModal()}>{options.details.image.icon.Tag}&nbsp;Image focus</button>
+				<button class="button is-info is-size-7" on:click={()=>showImageModal()}>{@html options.details.image.icon.Tag}&nbsp;Image focus</button>
 			{/if}
-			<button class="button is-primary is-size-7" on:click={()=>saveFileDetails({filename, title, focus: img.focus, safezone: img.safezone, properties: remapProperties()}).then(()=>modal.close())}>{options.details.save.icon.Tag}&nbsp;Save</button>
-			<button class="button is-danger is-size-7" on:click={()=>removeFile().then(()=>modal.close())}>{options.details.delete.icon.Tag}&nbsp;Delete</button>
+			<button class="button is-primary is-size-7" on:click={()=>saveFileDetails({filename, title, focus: img.focus, safezone: img.safezone, properties: remapProperties()}).then(()=>modal.close())}>{@html options.details.save.icon.Tag}&nbsp;Save</button>
+			<button class="button is-danger is-size-7" on:click={()=>removeFile().then(()=>modal.close())}>{@html options.details.delete.icon.Tag}&nbsp;Delete</button>
 		</footer>
 	</div>
 </ModalComponent>

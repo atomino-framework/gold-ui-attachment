@@ -3,13 +3,13 @@ import FaIcon from "gold/lib/fa-icon";
 
 let options: IOptions = {
 	attachment: {
-		button: {icon: FaIcon.s("folder-upload")},
+		button: {icon: FaIcon.s("folder-open")},
 		modal:{
-			upload: {icon: FaIcon.s("folder-upload")}
+			upload: {icon: FaIcon.s("folder-open")}
 		}
 	},
 	collection:{
-		upload:{icon: FaIcon.s("folder-upload")},
+		upload:{icon: FaIcon.s("folder-plus")},
 		full:{icon: FaIcon.s("times")},
 	},
 	details:{
